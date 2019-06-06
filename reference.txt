@@ -1,0 +1,20 @@
+<UIData>
+	<throttle>
+		<speed>0 to 10</speed>
+	</throttle>
+	<joy>
+		<xAxis>-127 to 127</xAxis>
+		<yAxis>-127 to 127</yAxis>
+	</joy>
+</UIData>
+
+
+ARDUINO SERIAL RECEIVE DATA FORMAT:
+x,y,z values will be specified in this example in their default state. 
+x - this is the forward/back value. Because this is a hovercraft there is no real "backward" movement. This value is instead representative of the throttle for the puser motors. Its default value is 0
+y - this is the left/right value. This value is provided to a function that determines turn authority based on the returned value. To make this value have a neutral value between 0 and 180, the default value is 90
+z - this is the lift value. This is a throttle value for the propeller that fills the skirt. 0 - 180, 0 is default
+
+serial send format: 
+x0 y90 z0 // x0 - no forward movement; y90 - no left or right movement; z0 - skirt deflated
+x180 y100 z65 // x180 full forward; y100 - slight right turn; z65 - skirt 36% inflated (motor spinning at 36% max rpm)
